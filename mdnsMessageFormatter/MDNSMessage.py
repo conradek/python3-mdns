@@ -63,6 +63,10 @@ class MDNSMessage(object):
         checkUInt16(flag)
         self.flags &= ~flag
 
-    def send(self):
-        sock = getMDNSSocket()
-        sock.sendto(self.toByteArray(),(MDNSIP,MDNSPort))
+    def send(self, ipv6=False, port=5353):
+        if ipv6 == False:
+            sock = getMDNSSocket(port)
+            sock.sendto(self.toByteArray(),(MDNSIP,MDNSPort))
+        else:
+            sock = getMDNSSocketIPV6(port)
+            sock.sendto(self.toByteArray(),(MDNSIPV6GROUP,MDNSPort))
