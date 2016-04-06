@@ -26,48 +26,48 @@ addsrv.setCacheFlushBit(True)
 m.addAdditionalRecord(addsrv)
 
 addtxt = MDNSRRTXT("fake._printer._tcp.local",1,4500,{'txtvers':1,
-														'qtotal':4,
-														'rp':'RAW',
-														'pdl':'application/postscript,application/vnd.hp-PCL,application/vnd.hp-PCLXL',
-														'ty':'Fake Printer',
-														'product':'(HP LaserJet P4015)',
-														'priority':52,
-														'adminurl':'http://ilab1.cs.byu.edu'})
+                                                        'qtotal':4,
+                                                        'rp':'RAW',
+                                                        'pdl':'application/postscript,application/vnd.hp-PCL,application/vnd.hp-PCLXL',
+                                                        'ty':'Fake Printer',
+                                                        'product':'(HP LaserJet P4015)',
+                                                        'priority':52,
+                                                        'adminurl':'http://ilab1.cs.byu.edu'})
 addtxt.setCacheFlushBit(True)
 m.addAdditionalRecord(addtxt)
 
 addtxt2 = MDNSRRTXT("fake._printer._tcp.local",1,4500,{'txtvers':1,
-														'qtotal':4,
-														'rp':'TEXT',
-														'pdl':'text/plain',
-														'ty':'Fake Printer',
-														'product':'(HP LaserJet P4015)',
-														'priority':53,
-														'adminurl':'http://ilab1.cs.byu.edu'})
+                                                        'qtotal':4,
+                                                        'rp':'TEXT',
+                                                        'pdl':'text/plain',
+                                                        'ty':'Fake Printer',
+                                                        'product':'(HP LaserJet P4015)',
+                                                        'priority':53,
+                                                        'adminurl':'http://ilab1.cs.byu.edu'})
 addtxt2.setCacheFlushBit(True)
 m.addAdditionalRecord(addtxt2)
 
 addtxt3 = MDNSRRTXT("fake._printer._tcp.local",1,4500,{'txtvers':1,
-														'qtotal':4,
-														'rp':'AUTO',
-														'pdl':'application/postscript,application/vnd.hp-PCL,application/vnd.hp-PCLXL,text/plain',
-														'ty':'Fake Printer',
-														'product':'(HP LaserJet P4015)',
-														'priority':51,
-														'adminurl':'http://ilab1.cs.byu.edu'})
+                                                        'qtotal':4,
+                                                        'rp':'AUTO',
+                                                        'pdl':'application/postscript,application/vnd.hp-PCL,application/vnd.hp-PCLXL,text/plain',
+                                                        'ty':'Fake Printer',
+                                                        'product':'(HP LaserJet P4015)',
+                                                        'priority':51,
+                                                        'adminurl':'http://ilab1.cs.byu.edu'})
 addtxt3.setCacheFlushBit(True)
 m.addAdditionalRecord(addtxt3)
 
 addtxt4 = MDNSRRTXT("fake._printer._tcp.local",1,4500,{'txtvers':1,
-														'qtotal':4,
-														'rp':'BINPS',
-														'pdl':'application/postscript',
-														'ty':'Fake Printer',
-														'product':'(HP LaserJet P4015)',
-														'priority':30,
-														'adminurl':'http://ilab1.cs.byu.edu',
-														'Transparent':'T',
-														'Binary':'T'})
+                                                        'qtotal':4,
+                                                        'rp':'BINPS',
+                                                        'pdl':'application/postscript',
+                                                        'ty':'Fake Printer',
+                                                        'product':'(HP LaserJet P4015)',
+                                                        'priority':30,
+                                                        'adminurl':'http://ilab1.cs.byu.edu',
+                                                        'Transparent':'T',
+                                                        'Binary':'T'})
 addtxt4.setCacheFlushBit(True)
 m.addAdditionalRecord(addtxt4)
 
@@ -86,13 +86,13 @@ raw_input("Press any key to send ipp TXT record...")
 m2 = MDNSMessage()
 m2.setFlag(kMDNSFlagResponse | kMDNSFlagAuthoritativeAnswer)
 answer = MDNSRRTXT("fake._ipp._tcp.local", 1, 4500,{'txtvers':1,
-													'qtotal':1,
-													'pdl':'application/postscript,application/vnd.hp-PCL,application/vnd.hp-PCLXL',
-													'rp':'NPI7F45A6',
-													'ty':'Fake Printer',
-													'product':'(HP LaserJet P4015)',
-													'priority':60,
-													'adminurl':'http://ilab1.cs.byu.edu'})
+                                                    'qtotal':1,
+                                                    'pdl':'application/postscript,application/vnd.hp-PCL,application/vnd.hp-PCLXL',
+                                                    'rp':'NPI7F45A6',
+                                                    'ty':'Fake Printer',
+                                                    'product':'(HP LaserJet P4015)',
+                                                    'priority':60,
+                                                    'adminurl':'http://ilab1.cs.byu.edu'})
 answer.setCacheFlushBit(True)
 
 m2.addResponseRecord(answer)
