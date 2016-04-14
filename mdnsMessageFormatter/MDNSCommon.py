@@ -1,5 +1,6 @@
 __author__ = 'crunk'
 
+import sys
 import socket
 import struct
 
@@ -26,9 +27,15 @@ def getMDNSSocketIPV6(port):
         MDNSSock = socket.socket(socket.AF_INET6, socket.SOCK_DGRAM, socket.IPPROTO_UDP)
         MDNSSock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
         MDNSSock.bind(('', port))
-
-        mreq = struct.pack('@i', 1)
-        MDNSSock.setsockopt(socket.IPPROTO_IPV6, socket.IPV6_MULTICAST_HOPS, mreq)
+        
+        if hasattr(socket, "IPPROTO_IPV6"):
+            mreq = struct.pack('@i', 1)
+            MDNSSock.setsockopt(socket.IPPROTO_IPV6, socket.IPV6_MULTICAST_HOPS, mreq)
+        elif sys.platform == "win32":   # also matches 64-bit windows
+            # http://www.programcreek.com/python/example/2787/socket.IPPROTO_IPV6
+            # Python 2.7.x on Windows does not have IPPROTO_IPV6
+            # these values extracted from Windows 7/8 header
+            MDNSSock.setsockopt(41, 27, 0)
 
     return MDNSSock
 
