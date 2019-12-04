@@ -67,7 +67,7 @@ class MDNSRRTXT(MDNSRR):
 
     def formatRRData(self, rrdataArgMap):
         result = bytearray()
-        for (k, v) in rrdataArgMap.items():
+        for (k, v) in list(rrdataArgMap.items()):
             result += encodeString(str(k) + "=" + str(v))
         return result
 

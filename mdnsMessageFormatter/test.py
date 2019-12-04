@@ -81,7 +81,7 @@ read, write, x = select.select([sock],[],[])
 time.sleep(.05)
 m.send()
 
-raw_input("Press any key to send ipp TXT record...")
+input("Press any key to send ipp TXT record...")
 
 m2 = MDNSMessage()
 m2.setFlag(kMDNSFlagResponse | kMDNSFlagAuthoritativeAnswer)
@@ -99,7 +99,7 @@ m2.addResponseRecord(answer)
 
 m2.send()
 
-raw_input("Press any key to send ipp SRV record again...")
+input("Press any key to send ipp SRV record again...")
 
 m3 = MDNSMessage()
 m3.setFlag(kMDNSFlagResponse | kMDNSFlagAuthoritativeAnswer)

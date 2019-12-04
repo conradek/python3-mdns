@@ -129,7 +129,7 @@ def uLong128ToByteArray(l):
 def checkULong128(l):
     """ Checks to see if parameter l is a ulong128,
     raises exception if not """
-    checkClass(l, long)
+    checkClass(l, int)
     if l < 0 or l >= 2**128:
         raise Exception("Long outside of range [0, 2^128)")
 
@@ -183,6 +183,6 @@ def encodeString(string):
     result = bytearray()
     result.append(len(string))
     for char in string:
-        result.append(char)
+        result.append(ord(char))
     return result
 
